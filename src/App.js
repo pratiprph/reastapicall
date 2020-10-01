@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component , useEffect} from 'react';
+import axios from 'axios';
 
-function App() {
+const ApiCall = (props) =>{
+
+  let fetchData = ()=>{
+    axios({
+      method: props.type,
+      url:props.url,
+      responseType: props.responseType
+    })
+      .then(function (response) {
+        console.log(response.data)
+      });
+  }
+ 
+   useEffect((props)=>{
+    fetchData()
+   },[])
+
+  return (
+     <div></div>
+  
+  );
+    }
+      
+ let  App = ()=> {
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     dshlhdsl
+     <ApiCall url="https://jsonplaceholder.typicode.com/users" type="get" responseType="json"/>
+     <ApiCall url="http://dummy.restapiexample.com/api/v1/employees" type="get" responseType="text"/>
     </div>
   );
+  
 }
 
 export default App;
