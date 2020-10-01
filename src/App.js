@@ -1,50 +1,15 @@
-import React, { Component , useEffect} from 'react';
-import axios from 'axios';
+import React, { Component } from 'react';
+import Ex from './Ex';
 
-const ApiCall = (props) =>{
-
-  let fetchData = ()=>{
-    axios({
-      method: props.type,
-      url:props.url,
-      responseType: props.responseType
-    })
-      .then(function (response) {
-        console.log(response.data)
-      });
-  }
-
-  let postData = ()=>{
-    console.log("post call");
-  }
-
-  const callApiAsPerNeed = ()=>{
-    if(props.type==="get"){
-      fetchData();
-    } else if(props.type==='post'){
-      postData();
-    }
-  }
- 
-   useEffect((props)=>{
-    //fetchData()
-    callApiAsPerNeed()
-   },[])
-
-  return (
-     <div></div>
-  
-  );
-    }
-      
  let  App = ()=> {
  
   return (
     <div className="App">
      dshlhdsl
-     <ApiCall url="https://jsonplaceholder.typicode.com/users" type="get" responseType="json"/>
+     {/* <ApiCall url="https://jsonplaceholder.typicode.com/users" type="get" responseType="json"/>
      <ApiCall url="http://dummy.restapiexample.com/api/v1/employees" type="get" responseType="text"/>
-     <ApiCall url="http://dummy.restapiexample.com/api/v1/employees" type="post" responseType="text"/>
+     <ApiCall url="http://dummy.restapiexample.com/api/v1/employees" type="post" responseType="text"/> */}
+     <Ex/>
     </div>
   );
   
